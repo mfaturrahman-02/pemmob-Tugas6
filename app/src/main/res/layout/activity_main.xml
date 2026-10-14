@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".MainActivity">
+
+    <!-- Preview Kamera Full-Screen -->
+    <androidx.camera.view.PreviewView
+        android:id="@+id/viewFinder"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Top Overlay (Timer Rekam & Indikator Kualitas) -->
+    <LinearLayout
+        android:id="@+id/topOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="40dp"
+        android:paddingBottom="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Timer Rekam Video -->
+        <LinearLayout
+            android:id="@+id/recordingTimerContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_timer_pill"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <View
+                android:id="@+id/recordingDot"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_shutter_inner"
+                android:backgroundTint="#FF3B30" />
+
+            <TextView
+                android:id="@+id/tvRecordingTimer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/timer_default"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Indikator Kualitas Aktif -->
+        <TextView
+            android:id="@+id/tvCurrentQuality"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_mode_pill"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="4dp"
+            android:text="@string/quality_format"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <!-- Bottom Control Panel Background Gradient -->
+    <View
+        android:id="@+id/bottomPanelBg"
+        android:layout_width="0dp"
+        android:layout_height="220dp"
+        android:background="@drawable/bg_control_bar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Ring Luar Tombol Shutter -->
+    <View
+        android:id="@+id/btnShutterOuter"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="36dp"
+        android:background="@drawable/bg_shutter_outer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Tombol Menu Settings (...) Kualitas Video -->
+    <ImageButton
+        android:id="@+id/btnVideoSettings"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/bg_thumbnail_round"
+        android:contentDescription="@string/video_quality_settings"
+        android:padding="12dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_more_vert"
+        app:layout_constraintBottom_toBottomOf="@id/btnShutterOuter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btnShutterOuter" />
+
+    <!-- Mode Switcher (FOTO / VIDEO) -->
+    <LinearLayout
+        android:id="@+id/modeSwitcherContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_mode_pill"
+        android:orientation="horizontal"
+        android:padding="4dp"
+        app:layout_constraintBottom_toTopOf="@id/btnShutterOuter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/tvModePhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_timer_pill"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="6dp"
+            android:text="@string/mode_photo"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvModeVideo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="6dp"
+            android:text="@string/mode_video"
+            android:textColor="#B0FFFFFF"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Tombol Shutter Inner -->
+    <View
+        android:id="@+id/btnShutterInner"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:background="@drawable/bg_shutter_inner"
+        app:layout_constraintBottom_toBottomOf="@id/btnShutterOuter"
+        app:layout_constraintEnd_toEndOf="@id/btnShutterOuter"
+        app:layout_constraintStart_toStartOf="@id/btnShutterOuter"
+        app:layout_constraintTop_toTopOf="@id/btnShutterOuter" />
+
+    <!-- Tombol Galeri / Thumbnail Tangkapan Terakhir -->
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/btnGalleryThumbnail"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="24dp"
+        android:background="@drawable/bg_thumbnail_round"
+        android:contentDescription="@string/gallery_thumbnail"
+        android:padding="2dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_gallery"
+        app:layout_constraintBottom_toBottomOf="@id/btnShutterOuter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btnShutterOuter"
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full" />
+
+    <!-- Tombol Switch Camera -->
+    <ImageButton
+        android:id="@+id/btnSwitchCamera"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_thumbnail_round"
+        android:contentDescription="@string/switch_camera"
+        android:padding="12dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_switch_camera"
+        app:layout_constraintBottom_toBottomOf="@id/btnShutterOuter"
+        app:layout_constraintEnd_toStartOf="@id/btnVideoSettings"
+        app:layout_constraintTop_toTopOf="@id/btnShutterOuter" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

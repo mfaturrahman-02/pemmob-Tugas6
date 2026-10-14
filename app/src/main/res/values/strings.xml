@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Camera &amp; Video App</string>
+    <string name="mode_photo">FOTO</string>
+    <string name="mode_video">VIDEO</string>
+    <string name="gallery_thumbnail">Galeri Hasil</string>
+    <string name="switch_camera">Ganti Kamera</string>
+    <string name="video_quality_settings">Pengaturan Kualitas Video</string>
+    <string name="video_quality_subtitle">Pilih resolusi perekaman video (16:9)</string>
+    <string name="back_camera_label">Back Camera (16:9)</string>
+    <string name="front_camera_label">Front Camera (16:9)</string>
+    <string name="full_hd">FULL HD (1080p)</string>
+    <string name="hd">HD (720p)</string>
+    <string name="sd_288p">288P</string>
+    <string name="sd_240p">240P</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="quality_format">%1$s: %2$s (16:9)</string>
+    <string name="timer_default">00:00</string>
+</resources>
